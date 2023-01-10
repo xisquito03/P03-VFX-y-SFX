@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool gameOver;
     private Rigidbody _rigidbody;
     public float jumpForce = 10;
     private bool isOnTheGround = true;
@@ -16,7 +17,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision otherCollider)
     {
-        isOnTheGround = true;
+
+        if (otherCollider.gameObject.CompareTag("Obstacle"))
+        {
+            gameOver = true;
+        
+    }else if (otherCollider.gameObject.CompareTag("Ground"))
+        {
+            isOnTheGround = true;
+
+        }
+        
     }
     private void Update()
     {
