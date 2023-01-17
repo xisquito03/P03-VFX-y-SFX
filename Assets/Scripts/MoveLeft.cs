@@ -5,7 +5,8 @@ using UnityEngine;
 public class MoveLeft : MonoBehaviour
 {
     private PlayerController playerControllerScript;
-    private float speed = 30;
+    public float speed = 30;
+    public float leftBound;
 
     private void Start()
     {
@@ -21,5 +22,9 @@ public class MoveLeft : MonoBehaviour
             CancelInvoke("SpawnObstacle");
         }
 
+        if (transform.position.x < leftBound && gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+        }
     }
    }

@@ -5,7 +5,10 @@ using UnityEngine;
 public class RepeatBackground : MonoBehaviour
 {
     private Vector3 startPos;
-    private float repeatWidth; // Anchura de una unidad de fondo
+    private float repeatWidth;
+
+
+
     private void Start()
     {
         startPos = transform.position;

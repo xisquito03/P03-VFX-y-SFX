@@ -16,6 +16,14 @@ public class SpawnManager : MonoBehaviour
       InvokeRepeating("SpawnObstacle", startDelay,repeatRate);
         playerControllerScript = FindObjectOfType<PlayerController>();
     }
+
+    private void Update()
+    {
+        if (playerControllerScript.gameOver)
+        {
+            CancelInvoke("SpawnObstacle");
+        }
+    }
     private void SpawnObstacle()
     {
         Instantiate(obstaclePrefab, spawnPos, obstaclePrefab.transform.rotation);
